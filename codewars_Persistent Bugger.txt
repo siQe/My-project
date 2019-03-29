@@ -1,0 +1,24 @@
+instruction:
+
+Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+
+
+decision:
+
+
+def persistence(n):
+    z = str(n)
+    if z == "4":
+      return 0
+    result = 1
+    if len(z) == 1:
+       return 1
+    for i in range(len(z)):
+        ax=z[i]
+        ax = int(ax)
+        result=result*ax
+    kol = 1
+    k = str(result)
+    if len(k) > 1:
+       kol= kol + int(persistence(result))
+    return kol   
