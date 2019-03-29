@@ -1,0 +1,35 @@
+instruction:
+Write a function that accepts an array of 10 integers (between 0 and 9), 
+
+that returns a string of those numbers in the form of a phone number.
+
+Example:
+create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) # => returns "(123) 456-7890"
+The returned format must be correct in order to complete this challenge. 
+Don't forget the space after the closing parentheses!
+
+
+
+decision:
+
+def create_phone_number(n):
+    c = []
+    j=0
+    for i in range(0,5):
+        if i == 0:
+          c.insert(i,"(")
+          continue
+        if i == 4:
+          c.insert(4,")")
+          continue
+        c.insert(i,n[j])
+        j=j+1
+    c.insert(5," ")
+    for i in range(6,14):
+        if i == 9:
+          c.insert(i,"-")
+        else:
+          c.insert(i,n[j])
+          j=j+1
+    k = "".join(str(i) for i in c)
+    return k
