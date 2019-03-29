@@ -1,0 +1,24 @@
+instruction:
+
+You are given an array (which will have a length of at least 3, but could be very large) containing integers.
+The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. 
+Write a method that takes the array as an argument and returns this outlier N.
+
+decision:
+
+def find_outlier(mass):
+      chetn =0
+      nechetn = 0
+      for i in range(len(mass)):
+          if mass[i] % 2 ==0:
+             chetn = chetn+1
+          else:
+             nechetn=nechetn+1
+      if chetn>nechetn:
+         for i in range(len(mass)):
+          if mass[i]%2 != 0:
+             return mass[i]
+      else:
+         for i in range(len(mass)):
+          if mass[i]%2 == 0:
+             return mass[i]
